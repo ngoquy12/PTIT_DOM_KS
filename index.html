@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="heading" id="heading">Heading 1</h1>
+    <h1 class="heading" id="heading">Heading 2</h1>
+
+    <div class="box-1">Box</div>
+    <div class="box-1">Box</div>
+    <div class="box-1">Box</div>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Họ và tên</th>
+          <th>Tuổi</th>
+          <th>Địa chỉ</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <h1>Event</h1>
+
+    <button onclick="handleClick1()">Click me 1</button>
+    <button id="btn-1">Click me 2</button>
+    <button id="btn-3">Click me 3</button>
+
+    <input type="text" placeholder="Nhập email" id="email" />
+    <h2 id="heading-2"></h2>
+
+    <script src="./index.js"></script>
+    <script>
+      // Cách 1
+      function handleClick1() {
+        console.log("Click 1");
+      }
+
+      // Cách 2
+      // b1: Lấy ra element của phần tử cần click
+      let btnElement = document.querySelector("#btn-1");
+      // b2: Lắng nghe sự kiện click lên phần tử
+      btnElement.onclick = function (e) {
+        console.log("Click me 2", e);
+      };
+
+      // Cách 3:
+      // b1: Lấy ra element của phần tử cần click
+      let btnElement1 = document.querySelector("#btn-3");
+      // b2: Lắng nghe sự kiện click lên phần tử
+
+      btnElement1.addEventListener("click", function () {
+        console.log("click me 3");
+      });
+
+      // Lấy value từ input
+      let inputElement = document.querySelector("#email");
+      let heading2 = document.querySelector("#heading-2");
+
+      // Lắng nghe sự kiện: button - click, input - input, select - change
+      inputElement.addEventListener("input", function (event) {
+        heading2.innerHTML = event.target.value;
+        console.log("Changed", event.target.value);
+      });
+    </script>
+  </body>
+</html>
